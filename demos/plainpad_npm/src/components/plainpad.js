@@ -1,5 +1,6 @@
 import React from 'react';
 import {pass,R,C,T,startRectangles} from 'rectangles-npm'
+import BookmarkBar from './BookmarkBar';
 
 /* Plain Pad app made of entirely rectangles.js components */
 function Plainpad(){
@@ -38,6 +39,9 @@ function Plainpad(){
                 </R>
             </R>  
             
+            {/* Bookmark Pane */}
+
+            <BookmarkBar></BookmarkBar>
 
             {/* Bottom Section */}
             <R tel l>
@@ -114,7 +118,7 @@ function Branding(props){
         <R l {...pass(props)}>
             
                 <C l p = "0 0 0 22px" s = {"70px"}>{/* Plain Pad Logo */}
-                    <img src = {"https://alextselegidis.com/try/plainpad-standalone/static/media/logo.af1c98b2.svg"} style={{height:"60%"}} />
+                    <img src = {"/logo512.png"} style={{height:"60%"}} />
                 </C>
                 
                 <C l ns mc s = {"120px"}>

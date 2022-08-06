@@ -19,6 +19,7 @@ function Plainpad(){
     }
 
 
+
     /* The App Component */
     return (
         <R root t bt bb br bl theme={theme}>
@@ -26,7 +27,7 @@ function Plainpad(){
 
 
             {/* Top Pane */}
-            <R l bb s={"70px"} >
+            <R l bb s={"120px"} >
                 <Branding />                                
                 <Icon l ns onClick={toggleCollapse}>bars</Icon>
                 <R tel />
