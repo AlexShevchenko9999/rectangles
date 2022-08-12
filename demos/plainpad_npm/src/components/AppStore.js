@@ -38,10 +38,11 @@ function AppStore({ setMode }) {
 
 
                 <C t tel >
-                    <div class="field" style={{ marginLeft: "20px", marginRight: "20px", backgroundColor: "white" }}>
+                    <div class="field" style={{ marginLeft: "20px", marginRight: "20px"}}>
                         <div className="control has-icons-left has-icons-right">
-                            <input className="input is-success" type="text" placeholder="Text input" value="bulma" />
-                            <span className="icon is-small is-left">
+                            {/* change the color of the placeholder below */}
+                            <input className="input is-success" type="text" placeholder="Text input" style={{color:"white"}} />
+                            <span className="icon is-small is-left" style={{color:"white"}}>
                                 <i className="fas fa-search"></i>
                             </span>
                         </div>
