@@ -5,8 +5,8 @@ function BookmarkBar(props) {
 
     return (
         <R l bb {...pass(props)} s={"30px"}>
-            <BookmarkItem text = {"App Directory"}></BookmarkItem>
-            <BookmarkItem text = {"Authentication Portal"}></BookmarkItem>
+            <BookmarkItem text = {"App Directory"} onClick = {()=>props.setMode("app_store")}></BookmarkItem>
+            <BookmarkItem text = {"Authentication Portal"} onClick = {()=>props.setMode("authenticator")}></BookmarkItem>
         </R>
     )
 

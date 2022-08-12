@@ -3,7 +3,7 @@ import {pass,R,C,T,startRectangles} from 'rectangles-npm'
 import BookmarkBar from './BookmarkBar';
 
 /* Plain Pad app made of entirely rectangles.js components */
-function Plainpad(){
+function Authenticator(props){
 
 
     /* Menu Collapsed State */
@@ -19,6 +19,7 @@ function Plainpad(){
         if (theme=="dark"){setTheme("light")}
         else {setTheme("dark")}
     }
+    
 
 
     /* The App Component */
@@ -41,7 +42,7 @@ function Plainpad(){
             
             {/* Bookmark Pane */}
 
-            <BookmarkBar></BookmarkBar>
+            <BookmarkBar setMode = {props.setMode}></BookmarkBar>
 
             {/* Bottom Section */}
             <R tel l>
@@ -129,4 +130,4 @@ function Branding(props){
     )
 }
 
-export default Plainpad;
+export default Authenticator;
