@@ -2,6 +2,8 @@ import React from 'react';
 import { pass, R, C, T, startRectangles } from 'rectangles-npm'
 import BookmarkBar from './BookmarkBar';
 import AppListing from './AppListing';
+import './AppStore.css';
+import mockPage from './mockAppData';
 
 /* Plain Pad app made of entirely rectangles.js components */
 function AppStore({ setMode }) {
@@ -23,7 +25,11 @@ function AppStore({ setMode }) {
     }
 
 
-
+    let appRows=mockPage.map((row,index)=>{
+        const titles = row.map((e)=> e.title)
+        const descriptions = row.map((e)=> e.description)
+        return <AppRow key={index} titles ={titles} descriptions={descriptions}></AppRow>
+    })
 
 
     /* The App Component */
@@ -38,11 +44,11 @@ function AppStore({ setMode }) {
 
 
                 <C t tel >
-                    <div class="field" style={{ marginLeft: "20px", marginRight: "20px"}}>
+                    <div class="field" style={{ marginLeft: "20px", marginRight: "20px" }}>
                         <div className="control has-icons-left has-icons-right">
                             {/* change the color of the placeholder below */}
-                            <input className="input is-success" type="text" placeholder="Text input" style={{color:"white"}} />
-                            <span className="icon is-small is-left" style={{color:"white"}}>
+                            <input className="input is-success textInput" type="text" placeholder="Search" style={{ color: "white" }} />
+                            <span className="icon is-small is-left" style={{ color: "white" }}>
                                 <i className="fas fa-search"></i>
                             </span>
                         </div>
@@ -62,42 +68,43 @@ function AppStore({ setMode }) {
             {/* Bottom Section */}
             <R tel l>
 
-
-
-
-
                 {/* App Dir */}
                 <R tel t >
-                    <div class="columns" style={{width:"100%"}}>
+                    {appRows}
+                    <div class="columns" style={{ width: "100%" }}>
+                        <div class="column"></div>
                         <div class="column">
-                            <AppListing title = "A" description={ "hello"}></AppListing>
-                        </div>
-                        <div class="column">
-                            <AppListing title = "B" description={ "world"}></AppListing>
-                        </div>
-                        <div class="column">
-                            <AppListing title = "c" description={ "yup"}></AppListing>
-                        </div>
-                    </div>
-                    <div class="columns" style={{width:"100%"}}>
-                        <div class="column">
-                            <AppListing title = "D" description={ "hello"}></AppListing>
-                        </div>
-                        <div class="column">
-                            <AppListing title = "B" description={ "world"}></AppListing>
-                        </div>
-                        <div class="column">
-                            <AppListing title = "c" description={ "yup"}></AppListing>
+                            <div class="snippet" data-title=".dot-fire">
+                                <div class="stage">
+                                    <div class="dot-fire"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </R>
 
 
             </R>
         </R>
+
     )
 }
 
+function AppRow({titles, descriptions}) {
+    return(
+    <div class="columns" style={{ width: "100%" }}>
+        <div class="column">
+            <AppListing title={titles[0]} description={descriptions[0]}></AppListing>
+        </div>
+        <div class="column">
+            <AppListing title={titles[1]} description={descriptions[1]}></AppListing>
+        </div>
+        <div class="column">
+            <AppListing title={titles[2]} description={descriptions[2]}></AppListing>
+        </div>
+    </div>
+)}
 
 /* The credit/link to the original Plain Pad project */
 function Credits(props) {
